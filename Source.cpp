@@ -82,16 +82,26 @@ char Character(char start, int offset)
 	letterU = strchr(lettersUp, start); 
 	letterL = strchr(lettersLow, start);
 
+	//char finalUp = lettersUp[letterU - lettersUp + offset];
+	//char finalLow = lettersLow[letterL - lettersLow + offset];
+
 	if (isupper(start))
 	{
 		strchr(lettersUp, start);
 		cout << "\nLetter " << start << " found at " << letterU - lettersUp + 1;
+		cout << "\nNew letter is " << offset << " away . . .";
+		cout << "\nNew letter " << lettersUp[letterU - lettersUp + offset];
+
+		return lettersUp[letterU - lettersUp + offset];
 	}
 	else if (islower(start))
 	{
 		strchr(lettersLow, start);
 		cout << "\nLetter " << start << " found at " << letterL - lettersLow + 1;
-		//cout << "\nNew letter is " << 
+		cout << "\nNew letter is " << offset << " away . . .";
+		cout << "\nNew letter " << lettersLow[letterL - lettersLow + offset];
+
+		return lettersLow[letterL - lettersLow + offset];
 	}
 
 	strchr(lettersCap1, start);
@@ -104,7 +114,7 @@ char Character(char start, int offset)
 
 	letter3 = strcspn(lettersCap3, keys3);
 
-	if (strchr(lettersCap1, start))
+	/*if (strchr(lettersCap1, start))
 	{
 		letter1 = strcspn(lettersCap1, keys1);
 		cout << "\nNew letter is found at " << letter1 + 1;
@@ -121,7 +131,7 @@ char Character(char start, int offset)
 		letter3 = strcspn(lettersCap3, keys3);
 		cout << "\nNew letter is found at " << letter3 + 1;
 		return letter3;
-	}
+	}*/
 	
 
 	
