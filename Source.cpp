@@ -54,7 +54,7 @@ void ValidateOffset(int offset)
 
 	if (!isdigit(offset)) //offset !=  0 > 10 || -10 > 0
 	{
-	throw invalidRangeException;
+		throw invalidRangeException;
 	}
 
 	
@@ -72,8 +72,27 @@ char Character(char start, int offset)
 	char keys2[] = { "KLMNOPQRST" }; //1234567890
 	char keys3[] = { "UVWXYZ" };  //123456 //seperated the alphabet into 3 keys 10+10+6 as to compare for letter and return value
 	char lettersLow[] = { "abcdefghijklmnopqrstuvwxyz" };
+	char* letterU;
+	char lettersUp[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+	char* letterL;
+
 
 	int letter1, letter2, letter3;
+
+	letterU = strchr(lettersUp, start); 
+	letterL = strchr(lettersLow, start);
+
+	if (isupper(start))
+	{
+		strchr(lettersUp, start);
+		cout << "\nLetter " << start << " found at " << letterU - lettersUp + 1;
+	}
+	else if (islower(start))
+	{
+		strchr(lettersLow, start);
+		cout << "\nLetter " << start << " found at " << letterL - lettersLow + 1;
+		//cout << "\nNew letter is " << 
+	}
 
 	strchr(lettersCap1, start);
 	strchr(lettersCap2, start);
@@ -89,11 +108,13 @@ char Character(char start, int offset)
 	{
 		letter1 = strcspn(lettersCap1, keys1);
 		cout << "\nNew letter is found at " << letter1 + 1;
+		return letter1;
 	}
 	else if (strchr(lettersCap2, start))
 	{
 		letter2 = strcspn(lettersCap2, keys2);
 		cout << "\nNew letter is found at " << letter2 + 1;
+		return letter2;
 	}
 	else if (letter3 = strcspn(lettersCap3, keys3))
 	{
